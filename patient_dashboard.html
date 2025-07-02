@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2d9a66a8b.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --bg-light: #f4f6f8;
+      --bg-dark: #1f2b37;
+      --card-bg-light: #fff;
+      --card-bg-dark: #2f3e4e;
+      --text-light: #2c3e50;
+      --text-dark: #ecf0f1;
+      --radius: 16px;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+      padding: 40px 20px;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 10px;
+    }
+
+    .user-greeting {
+      font-size: 1.5rem;
+    }
+
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .toggle-theme {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .notification {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+
+    .notification .badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: red;
+      color: white;
+      font-size: 0.7rem;
+      padding: 3px 6px;
+      border-radius: 50%;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg-light);
+      border-radius: var(--radius);
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, background 0.3s, color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: var(--primary-color);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    .live-data {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin-top: 8px;
+    }
+
+    body.dark .card {
+      background: var(--card-bg-dark);
+    }
+
+    body.dark .card a {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    body.dark .card a:hover {
+      background: #fff;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 600px) {
+      .user-greeting {
+        font-size: 1.2rem;
+      }
+
+      .toggle-theme {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="user-greeting" id="greeting">Hello, <span id="username">Patient</span> 👋</div>
+    <div class="right-actions">
+      <div class="notification" onclick="clearNotifications()">
+        <i class="fas fa-bell"></i>
+        <span class="badge" id="notifBadge">3</span>
+      </div>
+      <button class="toggle-theme" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <div class="dashboard">
+    <div class="card">
+      <i class="fas fa-calendar-check"></i>
+      <h2>Upcoming Appointments</h2>
+      <a href="patient-appointments.php">View Schedule</a>
+      <div class="live-data" id="appointmentsData">Loading...</div>
+      <div class="live-data" id="doctorNotes" style="margin-top: 8px; font-style: italic; color: #555;"></div>
+    </div>
+    
+    <div class="card">
+      <i class="fas fa-envelope-open-text"></i>
+      <h2>Messages from Doctors</h2>
+      <a href="patient_messages.php">Open Messages</a>
+      <div class="live-data" id="messagesData">Checking inbox...</div>
+    </div>
+    <div class="card">
+      <i class="fas fa-notes-medical"></i>
+      <h2>Book an Appointment</h2>
+      <a href="booking.html">Book Now</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-file-medical-alt"></i>
+      <h2>Medical History</h2>
+      <a href="patient-medical-history.php">View History</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-upload"></i>
+      <h2>Upload Reports</h2>
+      <a href="Patient Report.php">Upload Files</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-prescription-bottle-alt"></i>
+      <h2>Prescriptions</h2>
+      <a href="patient-prescriptions.php">Download</a>
+    </div>
+    
+
+
+      
+
+      <a class="back" href="home.html">&larr; Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    // Fetch dashboard data for the patient
+    fetch('/api/patient-dashboard.php')
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to load dashboard data");
+        return res.json();
+      })
+      .then(user => {
+        // Display full name in greeting
+        document.getElementById("username").textContent = user.name;
+  
+        // Show next appointment
+        document.getElementById("appointmentsData").textContent = `Next: ${user.nextAppointment}`;
+  
+        // Show doctor notes if available
+        if (user.doctorNotes && user.doctorNotes.trim() !== "") {
+          document.getElementById("doctorNotes").textContent = `"${user.doctorNotes}"`;
+        } else {
+          document.getElementById("doctorNotes").textContent = `No doctor notes available.`;
+        }
+  
+        // Show unread messages
+        document.getElementById("messagesData").textContent = `${user.unreadMessages} unread message(s)`;
+      })
+      .catch(err => {
+        console.error("Dashboard fetch error:", err);
+        document.getElementById("appointmentsData").textContent = "Refresh to load appointments.";
+        document.getElementById("messagesData").textContent = "reload to see messages.";
+      });
+  
+    // Notifications
+    function clearNotifications() {
+      const badge = document.getElementById("notifBadge");
+      badge.style.display = "none";
+      alert("Notifications cleared!");
+    }
+  
+    // Dark mode toggle
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+      const button = document.querySelector(".toggle-theme");
+      button.innerHTML = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+    }
+  </script>
+  
+
+</body>
+</html>

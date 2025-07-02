@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Optometry Clinic Gallery</title>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0077b6;
+  color: white;
+  margin-top: 2rem;
+}
+
+
+    </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Optometry Clinic</h1>
+    <p>See how we care for your vision</p>
+  </header>
+
+  <section class="gallery">
+    <div class="gallery-item"><img src="images/clinic-exterior.jpg" alt="Clinic Exterior"/></div>
+    <div class="gallery-item"><img src="images/waiting-area.jpg" alt="Waiting Area"/></div>
+    <div class="gallery-item"><img src="images/exam-room.jpg" alt="Eye Exam Room"/></div>
+    <div class="gallery-item"><img src="images/optometrist.jpg" alt="Optometrist at Work"/></div>
+    <div class="gallery-item"><img src="images/eyewear-display.jpg" alt="Eyewear Selection"/></div>
+    <div class="gallery-item"><img src="images/eye-test.jpg" alt="Vision Test"/></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 VisionCare Optometry. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

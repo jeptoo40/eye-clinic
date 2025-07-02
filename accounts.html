@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup & Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url("bac.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h1,
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: 500;
+      margin-top: 15px;
+      display: block;
+    }
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #f9f9f9;
+      transition: border-color 0.3s;
+    }
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+    select {
+      background-color: #fff;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .role-form {
+      display: none;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    .form-section {
+      margin-top: 20px;
+    }
+    .toggle-login-signup {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .toggle-login-signup a {
+      color: #3498db;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .toggle-login-signup a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Account or Login</h1>
+
+    <label for="role">I am a:</label>
+    <select id="role" onchange="onRoleChange()">
+      <option value="">-- Select Role --</option>
+      <option value="doctor">Doctor</option>
+      <option value="patient">Patient</option>
+    </select>
+
+    <!-- Doctor Signup -->
+    <form
+      id="doctorSignupForm"
+      class="role-form form-section"
+      onsubmit="return validateDoctorForm()"
+      action="http://localhost:8000/signup_doctor.php"
+      method="POST"
+    >
+      <h2>Doctor Signup</h2>
+
+      <label>Full Name</label>
+      <input type="text" name="name" required />
+
+      <label>Email</label>
+      <input type="email" id="doctorSignupEmail" name="email" required />
+
+      <label>Specialization</label>
+      <input type="text" name="specialization" required />
+
+      <label>Medical License No</label>
+      <input type="text" name="license" required />
+
+      <label>Password</label>
+      <input type="password" id="doctorSignupPassword" name="password" required />
+
+      <span id="doctorSignupError" class="error"></span>
+
+      <button type="submit">Register as Doctor</button>
+
+      <div class="toggle-login-signup">
+        Already have an account?
+        <a onclick="switchForm('doctor', 'login')">Login here</a>
+      </div>
+    </form>
+
+    <!-- Doctor Login -->
+    <form
+      id="doctorLoginForm"
+      class="role-form form-section"
+      onsubmit="return validateDoctorLogin()"
+      action="http://localhost:8000/login_doctor.php"
+      method="POST"
+    >
+      <h2>Doctor Login</h2>
+
+      <label>Email</label>
+      <input type="email" id="doctorLoginEmail" name="email" required />
+
+      <label>Password</label>
+      <input type="password" id="doctorLoginPassword" name="password" required />
+
+      <span id="doctorLoginError" class="error"></span>
+
+      <button type="submit">Login as Doctor</button>
+
+      <div class="toggle-login-signup">
+        Don't have an account?
+        <a onclick="switchForm('doctor', 'signup')">Sign up here</a>
+      </div>
+    </form>
+
+    <!-- Patient Signup -->
+    <form
+    id="patientSignupForm"
+    class="role-form form-section"
+    onsubmit="return validatePatientForm()"
+    action="http://localhost:8000/signup_patient.php"
+    method="POST"
+  >
+  
+      <h2>Patient Signup</h2>
+
+      <label>Full Name</label>
+      <input type="text" name="name" required />
+
+      <label>Email</label>
+      <input type="email" id="patientSignupEmail" name="email" required />
+
+      <label>Age</label>
+      <input type="number" name="age" required />
+
+      <label>Gender</label>
+      <select name="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label>Password</label>
+      <input type="password" id="patientSignupPassword" name="password" required />
+
+      <span id="patientSignupError" class="error"></span>
+
+      <button type="submit">Register as Patient</button>
+
+      <div class="toggle-login-signup">
+        Already have an account?
+        <a onclick="switchForm('patient', 'login')">Login here</a>
+      </div>
+    </form>
+
+    <!-- Patient Login -->
+    <form
+      id="patientLoginForm"
+      class="role-form form-section"
+      onsubmit="return validatePatientLogin()"
+      action="http://localhost:8000/login_patient.php"
+      method="POST"
+    >
+      <h2>Patient Login</h2>
+
+      <label>Email</label>
+      <input type="email" id="patientLoginEmail" name="email" required />
+
+      <label>Password</label>
+      <input type="password" id="patientLoginPassword" name="password" required />
+
+      <span id="patientLoginError" class="error"></span>
+
+      <button type="submit">Login as Patient</button>
+
+      <div class="toggle-login-signup">
+        Don't have an account?
+        <a onclick="switchForm('patient', 'signup')">Sign up here</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Show relevant form on role select
+    function onRoleChange() {
+      const role = document.getElementById('role').value;
+      if (!role) {
+        hideAllForms();
+        return;
+      }
+      // Default show Signup form on role change
+      switchForm(role, 'signup');
+    }
+
+    function hideAllForms() {
+      ['doctorSignupForm', 'doctorLoginForm', 'patientSignupForm', 'patientLoginForm'].forEach(
+        (id) => (document.getElementById(id).style.display = 'none')
+      );
+    }
+
+    // Toggle between signup and login forms
+    function switchForm(role, formType) {
+      hideAllForms();
+      const formId = role + (formType === 'signup' ? 'SignupForm' : 'LoginForm');
+      document.getElementById(formId).style.display = 'block';
+    }
+
+    // Validation for doctor signup
+    function validateDoctorForm() {
+      const email = document.getElementById('doctorSignupEmail').value;
+      const password = document.getElementById('doctorSignupPassword').value;
+      const errorSpan = document.getElementById('doctorSignupError');
+
+      if (!email.includes('@')) {
+        errorSpan.textContent = 'Please enter a valid email.';
+        return false;
+      }
+      if (password.length < 6) {
+        errorSpan.textContent = 'Password must be at least 6 characters.';
+        return false;
+      }
+      errorSpan.textContent = '';
+      return true;
+    }
+
+    // Validation for doctor login
+    function validateDoctorLogin() {
+      const email = document.getElementById('doctorLoginEmail').value;
+      const password = document.getElementById('doctorLoginPassword').value;
+      const errorSpan = document.getElementById('doctorLoginError');
+
+      if (!email.includes('@')) {
+        errorSpan.textContent = 'Please enter a valid email.';
+        return false;
+      }
+      if (password.length < 6) {
+        errorSpan.textContent = 'Password must be at least 6 characters.';
+        return false;
+      }
+      errorSpan.textContent = '';
+      return true;
+    }
+
+    // Validation for patient signup
+    function validatePatientForm() {
+      const email = document.getElementById('patientSignupEmail').value;
+      const password = document.getElementById('patientSignupPassword').value;
+      const errorSpan = document.getElementById('patientSignupError');
+
+      if (!email.includes('@')) {
+        errorSpan.textContent = 'Please enter a valid email.';
+        return false;
+      }
+      if (password.length < 6) {
+        errorSpan.textContent = 'Password must be at least 6 characters.';
+        return false;
+      }
+      errorSpan.textContent = '';
+      return true;
+    }
+
+    // Validation for patient login
+    function validatePatientLogin() {
+      const email = document.getElementById('patientLoginEmail').value;
+      const password = document.getElementById('patientLoginPassword').value;
+      const errorSpan = document.getElementById('patientLoginError');
+
+      if (!email.includes('@')) {
+        errorSpan.textContent = 'Please enter a valid email.';
+        return false;
+      }
+      if (password.length < 6) {
+        errorSpan.textContent = 'Password must be at least 6 characters.';
+        return false;
+      }
+      errorSpan.textContent = '';
+      return true;
+    }
+
+    // Initialize: hide all forms at page load
+    window.onload = () => {
+      hideAllForms();
+    };
+  </script>
+</body>
+</html>

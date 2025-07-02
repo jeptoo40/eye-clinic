@@ -1,0 +1,214 @@
+/* General Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('bg (3).jpg');
+    background-repeat: no-repeat;
+    background-size: cover;      /* makes sure it covers whole screen */
+    background-position: center; /* centers the image */
+    color: #333;
+  }
+  
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.logo h2 {
+  font-size: 1.5rem;
+  color: #0d6efd;
+  margin-left: 10px;
+}
+
+/* Navbar Styling */
+.nav-link {
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+
+.about {
+     background: rgba(255, 255, 255, 0.712); /* translucent white */ background-color: rgba(255, 255, 255, 0.486); /* white with 80% opacity */
+    padding: 60px 20px;
+    border-radius: 8px; /* optional for rounded edges */
+    max-width: 900px;
+    margin: 40px auto;
+  }
+  
+.about h2 {
+  font-size: 2rem;
+  color: #0d6efd;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+
+
+
+.team-section {
+    background-color: rgba(255, 255, 255, 0.548);
+    backdrop-filter: blur(1px);
+    border-top: 1px solid #eee;
+  }
+  
+  .team-section h2 {
+    color: #0369a1;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  
+  .team-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .team-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0d6efd;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.testimonials {
+    background-color: #e0f2fe4f; /* light blue */
+    color: #0f172a; /* dark blue */
+  }
+  
+  .testimonials h2 {
+    font-weight: 700;
+    color: #0369a1;
+  }
+  
+  .testimonial-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.85); /* translucent white */
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .testimonial-card h5 {
+    margin-top: 15px;
+    font-weight: 600;
+    font-style: normal;
+    text-align: right;
+    color: rgba(2, 132, 199, 0.7); /* semi-transparent blue */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* optional for better readability */
+  }
+  
+  
+  /* Responsive */
+  @media (min-width: 768px) {
+    .testimonial-cards {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .testimonial-card {
+      width: 30%;
+    }
+  }
+  
+
+
+
+  footer {
+    background-color: #3a3c3d;/* Slight transparency to show background */
+    color: #f1f1f1;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    border-top: 1px solid rgba(255, 255, 255, 0.301);
+  }
+  
+  footer p {
+    margin: 8px 0;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  
+  footer p:first-child {
+    font-weight: 500;
+    color: #e2d7d5; /* green accent for location */
+  }
+  
+  footer p a {
+    color: #93c5fd;
+    text-decoration: none;
+  }
+  
+  footer p a:hover {
+    text-decoration: underline;
+  }
+  
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    padding: 8px 0;
+  }
+
+  .logo h2 {
+    font-size: 1.2rem;
+  }
+}

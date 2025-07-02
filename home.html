@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EyeCare</title>
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="bg-white shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <div class="logo d-flex align-items-center">
+        <a href="home.html">
+          <img src="logo.jpeg" alt="EyeCare Logo" height="50">
+        </a>
+        <h2 class="ms-2 mb-0">EyeCare</h2>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link text-dark" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="aboutus.html">About</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#">Our Gallery</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#">Services</a></li>
+        
+          <li class="nav-item">
+            <a href="accounts.html" class="btn btn-success btn-lg mb-4">Signup Now</a>
+          </li>
+        </ul>
+      </nav>
+      
+    </div>
+
+  </header>
+
+  <!-- About Section -->
+  <section class="about py-5 bg-light text-center">
+    <div class="container">
+      <h2 class="mb-4">Why EyeCare?</h2>
+      <p class="lead">
+        We’re redefining the eye care experience. From virtual vision tests to helping you obtain your favorite frames,
+        our platform gives you full control of your eye health — with the same care you'd expect from a clinic.
+      </p>
+    </div>
+  </section>
+
+<!-- Meet Our Team Section -->
+<section class="team-section py-5 text-center">
+    <div class="container">
+      <h2 class="mb-5">Meet Our Optometrists</h2>
+      <div class="row justify-content-center">
+  
+        <!-- Team Member 1 -->
+        <div class="col-md-4 mb-4">
+          <div class="team-card p-4">
+            <img src="doc1.png" alt="doc1" class="team-photo mb-3">
+            <h5>Dr. Yegon</h5>
+            <p class="text-muted">Senior Optometrist</p>
+            <p>"I believe everyone deserves clear vision and your eye health our concern!."</p>
+            
+          </div>
+        </div>
+  
+        <!-- Modal for Dr. Jane -->
+        <div class="modal fade" id="modalJane" tabindex="-1" aria-labelledby="modalJaneLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalJaneLabel">Dr. Jane Njeri - Senior Optometrist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Dr. Jane Njeri has over 15 years of experience in optometry, specializing in advanced vision correction and patient education. She is passionate about personalized eye care and uses the latest technology to ensure the best outcomes for her patients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Team Member 2 -->
+        <div class="col-md-4 mb-4">
+          <div class="team-card p-4">
+            <img src="doc2.jpg" alt="Dr. Kamau" class="team-photo mb-3">
+            <h5>Dr. Samuel Kamau</h5>
+            <p class="text-muted">Vision Therapy Specialist</p>
+            <p>"Helping patients recover their sight is my passion."</p>
+            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modalKamau">
+              Learn More
+            </button>
+          </div>
+        </div>
+  
+        <!-- Modal for Dr. Kamau -->
+        <div class="modal fade" id="modalKamau" tabindex="-1" aria-labelledby="modalKamauLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalKamauLabel">Dr. Samuel Kamau - Vision Therapy Specialist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Dr. Samuel Kamau specializes in vision therapy and rehabilitation. With over 10 years of experience, he has helped many patients improve their visual function through customized therapy programs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Team Member 3 -->
+        <div class="col-md-4 mb-4">
+          <div class="team-card p-4">
+            <img src="doc3.jpg" alt="Dr. Nyambura" class="team-photo mb-3">
+            <h5>Dr. Esther Nyambura</h5>
+            <p class="text-muted">Pediatric Eye Care</p>
+            <p>"I love working with children to protect their vision early."</p>
+            
+          </div>
+        </div>
+  
+        <!-- Modal for Dr. Nyambura -->
+        <div class="modal fade" id="modalNyambura" tabindex="-1" aria-labelledby="modalNyamburaLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalNyamburaLabel">Dr. Esther Nyambura - Pediatric Eye Care</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Dr. Esther Nyambura is dedicated to pediatric eye health and early vision care. She ensures children receive compassionate care that sets the foundation for healthy vision throughout their lives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">What Our Patients Say</h2>
+      <div class="testimonial-cards">
+  
+        <div class="testimonial-card">
+          <p>"EyeCare made booking my eye exam so easy and quick! The team was professional and friendly."</p>
+          <h5>- Sarah W.</h5>
+        </div>
+  
+        <div class="testimonial-card">
+          <p>"I love my new glasses! The platform helped me find the perfect frame, and delivery was super fast."</p>
+          <h5>- James K.</h5>
+        </div>
+  
+        <div class="testimonial-card">
+          <p>"Virtual vision tests were surprisingly accurate and saved me a lot of time. Highly recommend EyeCare."</p>
+          <h5>- Priya M.</h5>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CTA Footer -->
+<footer class="footer-cta text-white py-5">
+    <div class="container text-center">
+  
+      <!-- Call-to-Action -->
+      <h3 class="mb-3">Ready to Take Care of Your Vision?</h3>
+      <a href="#bookings" class="btn btn-primary mb-4">Book Appointment</a>
+  
+      <!-- Contact Info -->
+      <div class="footer-contact mb-3">
+        <p><strong>📞 Call Us:</strong> <a href="tel:+254702225574">(+254) 702-225-574</a></p>
+        <p><strong>✉️ Email:</strong> <a href="mailto:info@eyecare.com">info@eyecare.com</a></p>
+        <p><strong>📍 Visit Us:</strong> 123 EyeCare, Narok, Manyatta</p>
+      </div>
+  
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="#" class="me-3"><img src="fbicon.jpeg" alt="Facebook" height="24"></a>
+        <a href="#"><img src="instaicon.jpeg" alt="Instagram" height="24"></a>
+        <a href="#"><img src="tikicon.png" alt="Instagram" height="24"></a>
+      </div>
+  
+      <!-- Copyright -->
+      <div class="mt-4">
+        <p class="mb-0">&copy; 2025 EyeCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+
+</body>
+</html>
