@@ -69,29 +69,46 @@
 </head>
 
 <body>
+<!-- Responsive Navbar with Hamburger Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    
+    <!-- Logo and Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="home.html">
+      <img src="logo.jpeg" alt="EyeCare Logo" height="50">
+      <span class="ms-2 h4 mb-0">EyeCare</span>
+    </a>
 
-  <!-- Header -->
-  <header>
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-      <div class="d-flex align-items-center mb-2 mb-md-0">
-        <a href="home.html">
-          <img src="logo.jpeg" alt="EyeCare Logo" height="50">
-        </a>
-        <h2 class="ms-2 mb-0">EyeCare</h2>
-      </div>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="aboutus.html">About</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="gallery.html">Our Gallery</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
-          <li class="nav-item">
-            <a href="accounts.html" class="btn btn-success btn-sm ms-2">Signup Now</a>
-          </li>
-        </ul>
-      </nav>
+    <!-- Toggler for small screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Menu -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="aboutus.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="gallery.html">Our Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="accounts.html" class="btn btn-success ms-lg-3 mt-2 mt-lg-0">Signup Now</a>
+        </li>
+      </ul>
     </div>
-  </header>
+
+  </div>
+</nav>
+
 
   <!-- Gallery Section -->
   <section class="gallery">
