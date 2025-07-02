@@ -15,23 +15,24 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<!-- Responsive Navbar -->
+<!-- Responsive Navbar with Hamburger Menu -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container">
-    <!-- Brand/Logo -->
+    
+    <!-- Logo and Brand -->
     <a class="navbar-brand d-flex align-items-center" href="home.html">
       <img src="logo.jpeg" alt="EyeCare Logo" height="50">
-      <h2 class="ms-2 mb-0 h5">EyeCare</h2>
+      <span class="ms-2 h4 mb-0">EyeCare</span>
     </a>
 
-    <!-- Hamburger Button for Mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Toggler for small screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar Links -->
-    <div class="collapse navbar-collapse" id="navbarMenu">
+    <!-- Collapsible Menu -->
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item">
           <a class="nav-link text-dark" href="home.html">Home</a>
@@ -46,15 +47,14 @@
           <a class="nav-link text-dark" href="services.html">Services</a>
         </li>
         <li class="nav-item">
-          <a href="accounts.html" class="btn btn-success btn-sm ms-lg-3 mt-2 mt-lg-0">Signup Now</a>
+          <a href="accounts.html" class="btn btn-success ms-lg-3 mt-2 mt-lg-0">Signup Now</a>
         </li>
       </ul>
     </div>
+
   </div>
 </nav>
 
-  </div>
-</header>
 
 <!-- Services Section -->
 <section class="services py-5 bg-light">
