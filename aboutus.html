@@ -14,43 +14,317 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url("back.jpeg") no-repeat center center fixed;
+      background: white;
       background-size: cover;
       margin: 0;
       padding: 0;
       color: #333;
     
-    }
 
+
+    }
     .about-header {
-      background-color: #0077cc2a;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
+  background-image: url('bb2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px; /* Add vertical padding so content is never squashed */
+  text-align: left;
+  color: rgb(137, 135, 151);
+  position: relative;
+}
 
-    .about-header h1 {
-      font-size: 3rem;
-    }
+.about-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay for contrast */
+  z-index: 1;
+}
 
-    .about-content {
-      padding: 40px 20px;
-    }
+.about-content {
+  position: relative;
+  z-index: 2; /* Ensures content is above the overlay */
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-    .about-section {
-      margin-bottom: 40px;
-    }
+.about-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
 
-    .team-member {
-      text-align: center;
-    }
+.about-content p {
+  font-size: 22px;
+  margin: 0;
+}
 
-    .team-member img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
+
+
+
+
+
+.about-content-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 20px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 47px;
+  margin-bottom: 20px;
+  color: #2044bb;
+}
+
+.about-text p {
+  font-size: 25px;
+  line-height: 1.6;
+  color: #2e224b;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+
+@media (max-width: 768px) {
+  .about-content-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text, .about-image {
+    max-width: 100%;
+  }
+}
+
+
+
+.what-we-do-scroll-slider {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-slider-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 20s linear infinite;
+}
+
+.scroll-slide {
+  flex: 0 0 100vw;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.slide-overlay h3 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.slide-overlay p {
+  font-size: 20px;
+  max-width: 700px;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .what-we-do-scroll-slider {
+    height: 350px;
+  }
+
+  .slide-overlay h3 {
+    font-size: 22px;
+  }
+
+  .slide-overlay p {
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+
+
+/* Title Style */
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1e9245;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background-color: #2044bb;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Team Section Background */
+.team-section {
+  background-color: #f8f9fc;
+}
+
+/* Team Card */
+.team-member-card {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.team-member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Member Image */
+.team-member-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #2044bb;
+}
+
+/* Text Styles */
+.team-member-card h5 {
+  font-size: 20px;
+  color: #2044bb;
+  margin-top: 15px;
+}
+
+.team-member-card p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+.why-us-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 60px 20px;
+  background-color: #f8f9fc;
+  gap: 40px;
+}
+
+.content-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.content-text h2 {
+  font-size: 40px;
+  color: #2044bb;
+  margin-bottom: 20px;
+}
+
+.content-text p {
+  font-size: 25px;
+  color: #260c47;
+  line-height: 1.7;
+}
+
+.why-us-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.why-us-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .why-us-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     footer {
       background-color: #3a3c3d;
@@ -70,7 +344,7 @@
 </head>
 <body>
 
-  <!-- Responsive Navbar with Hamburger Menu -->
+ <!-- Responsive Navbar with Hamburger Menu -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container">
     
@@ -110,57 +384,176 @@
   </div>
 </nav>
 
-
-  <!-- About Us Hero -->
-  <div class="about-header">
+<div class="about-header">
+  <div class="about-overlay">
     <h1>About Us</h1>
     <p>Committed to Your Clearer Vision and Healthier Eyes</p>
   </div>
+</div>
 
-  <!-- About Content -->
-  <div class="container about-content">
-    
-    <div class="about-section">
-      <h2>Our Mission</h2>
-      <p>At EyeCare, our mission is simple: to provide the highest quality eye care with compassion, professionalism, and dedication. Whether you're coming in for a routine check-up or specialized treatment, we put your comfort and clarity first.</p>
-    </div>
 
-    <div class="about-section">
-      <h2>What We Do</h2>
-      <p>We offer a full range of optometric services including eye exams, glasses and contact lens fittings, pediatric eye care, dry eye treatment, and emergency care. Our state-of-the-art equipment and knowledgeable team ensure accurate diagnostics and effective treatment plans.</p>
-    </div>
 
-    <div class="about-section">
-      <h2>Meet Our Team</h2>
-      <div class="row text-center">
-        <div class="col-md-4 team-member">
-          <img src="doc1.jpeg" alt="Dr. Jane Smith">
-          <h5 class="mt-2">Dr. Jane Smith</h5>
-          <p>Lead Optometrist</p>
-        </div>
-        <div class="col-md-4 team-member">
-          <img src="doc3.jpeg" alt="Dr. Mark Otieno">
-          <h5 class="mt-2">Dr. Mark Otieno</h5>
-          <p>Specialist in Pediatric Eye Care</p>
-        </div>
-        <div class="col-md-4 team-member">
-          <img src="doc2.jpeg" alt="Sarah Njeri">
-          <h5 class="mt-2">Sarah Njeri</h5>
-          <p>Clinic Manager</p>
-        </div>
+
+
+
+
+
+ <!-- About Content -->
+<div class="container about-content-section">
+  <div class="about-text">
+    <h2>Our Mission</h2>
+    <p>
+      At EyeCare, our mission is simple: to provide the highest quality eye care with compassion, professionalism, and dedication. Whether you're coming in for a routine check-up or specialized treatment, we put your comfort and clarity first.We are pacesetters in our field, inspired by our core value of care. We care about the dignity of our patients and strive to become a one-stop healthcare provider in East and Central Africa. We operate under the umbrella of the Social Service League which is a non-racial, non-religious, non-political charitable institution.
+    </p>
+  </div>
+  
+  <div class="about-image">
+    <img src="mission.jpeg" alt="EyeCare mission image">
+  </div>
+</div>
+
+
+
+<section class="what-we-do-scroll-slider">
+  <div class="scroll-slider-track">
+
+    <div class="scroll-slide" style="background-image: url('eyeexam.jpg');">
+      <div class="slide-overlay">
+        <h3>Comprehensive Eye Exams</h3>
+        <p>Regular check-ups to maintain clear, healthy vision at every age.</p>
       </div>
     </div>
 
-    <div class="about-section">
-      <h2>Why Choose EyeCare?</h2>
-      <ul>
-        <li>✅ Personalized eye care for all ages</li>
-        <li>✅ Experienced and friendly professionals</li>
-        <li>✅ Affordable services and insurance accepted</li>
-        <li>✅ Convenient location in Narok, Manyatta</li>
-      </ul>
+    <div class="scroll-slide" style="background-image: url('contact.jpeg');">
+      <div class="slide-overlay">
+        <h3>Contact Lens Fittings</h3>
+        <p>Precise fittings and guidance for comfortable, clear contact lens wear.</p>
+      </div>
+    </div>
+
+    <div class="scroll-slide" style="background-image: url('pd.jpeg');">
+      <div class="slide-overlay">
+        <h3>Pediatric Eye Care</h3>
+        <p>Gentle, expert eye care tailored for children of all ages.</p>
+      </div>
+    </div>
+
+    <div class="scroll-slide" style="background-image: url('dd.jpg');">
+      <div class="slide-overlay">
+        <h3>Dry Eye Treatment</h3>
+        <p>Relief and long-term solutions for chronic dry eye conditions.</p>
+      </div>
+    </div>
+
+    <!-- Duplicate slides to create seamless scrolling -->
+    <div class="scroll-slide" style="background-image: url('eyeexam.jpg');">
+      <div class="slide-overlay">
+        <h3>Comprehensive Eye Exams</h3>
+        <p>Regular check-ups to maintain clear, healthy vision at every age.</p>
+      </div>
+    </div>
+
+    <div class="scroll-slide" style="background-image: url('contact.jpeg');">
+      <div class="slide-overlay">
+        <h3>Contact Lens Fittings</h3>
+        <p>Precise fittings and guidance for comfortable, clear contact lens wear.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="team-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5" style="font-size: 42px; color: #2044bb;">Meet Our Team</h2>
+
+    <div class="row justify-content-center">
+      
+      <div class="col-md-4 mb-4">
+        <div class="team-member-card">
+          <img src="doc1.jpeg" alt="Dr. Jane Smith">
+          <h5 class="mt-3">Dr. Jane Smith</h5>
+          <p>Lead Optometrist</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="team-member-card">
+          <img src="doc3.jpeg" alt="Dr. Mark Otieno">
+          <h5 class="mt-3">Dr. Mark Otieno</h5>
+          <p>Specialist in Pediatric Eye Care</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="team-member-card">
+          <img src="doc2.jpeg" alt="Sarah Njeri">
+          <h5 class="mt-3">Sarah Njeri</h5>
+          <p>Clinic Manager</p>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="why-us-section">
+  <div class="content-text">
+    <h2 class="section-title">Why Choose EyeCare?</h2>
+    <p>
+      At EyeCare, we provide comprehensive eye care tailored to individuals of all ages. Our qualified, compassionate professionals are committed to your long-term vision health. We offer transparent and affordable pricing, with insurance support available. Located conveniently in the heart of Narok, Manyatta, EyeCare is your trusted partner for clearer vision and healthier eyes.
+    </p>
+  </div>
+
+  <div class="why-us-image">
+    <img src="opto.jpeg" alt="Why EyeCare Image">
+  </div>
+</div>
+
+
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Footer -->
   <footer>
